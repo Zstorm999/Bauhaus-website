@@ -4,12 +4,23 @@ var imageWidth;
 var imageCount;
 var currentImage = 0;
 
+var timer;
+
+var leftButton;
+var rightButton;
+
 function init(){
+
+    leftButton = document.getElementById('leftArrow');
+    leftButton.onclick = leftButtonClicked;
+
+    rightButton = document.getElementById('rightArrow');
+    rightButton.onclick = rightButtonClicked;
 
     ul= document.getElementById('slider');
     liItems = ul.children;
     imageCount = liItems.length;
-    imageWidth = liItems[0].children[0].offsetWidth;
+    imageWidth = liItems[0].children[0].width;
 
     ul.style.width = parseInt(imageWidth * imageCount) + 'px';
     slider(ul);
@@ -20,8 +31,8 @@ function slider(){
 
     animate({
         delay:17,
-        duration: 8000,
-        delta: function(p){return Math.max(0, -1+2*p)},
+        stillDuration: 6000,
+        movingDuration: 1100,
         step:function(delta){
             ul.style.left = '-' + parseInt(currentImage * imageWidth + delta * imageWidth) + 'px';
         },
@@ -55,21 +66,38 @@ function goBack(leftPosition){
 }
 
 function animate(opts){
-    var start = new Date;
+    timer = Date.now();
     var id = setInterval(function(){
-        var elapsedTime = new Date - start;
-        var progress = elapsedTime / opts.duration;
+        var elapsedTime = Date.now() - timer;
+        var progress = elapsedTime / opts.stillDuration;
         if(progress > 1 ){
-            progress = 1;
+            
+            elapsedTime -= opts.stillDuration;
+
+            progress = elapsedTime / opts.movingDuration;
+            if(progress > 1){
+                progress = 1;
+            }
+
+            opts.step(progress)
+
+            if(progress == 1){
+                clearInterval(id);
+                opts.callback();
+            }
         }
-        var delta = opts.delta(progress);
-        opts.step(delta);
-        if(progress == 1){
-            clearInterval(id);
-            opts.callback();
-        }
+        
+        
 
     }, opts.delay || 17);
+}
+
+function leftButtonClicked(){
+    console.log("Left");
+}
+
+function rightButtonClicked(){
+    console.log("Right");
 }
 
 window.onload = init;

@@ -1,5 +1,8 @@
 header{
 
+
+    background-color: rgb(245, 245, 245);
+
     display: flex;
     flex-direction: row;
 
@@ -74,8 +77,19 @@ header{
 @media screen and (min-width:768px) and (max-width:1280px) {
     
     header {
-        color: red;
         font-size: 1.2em;
+    }
+
+    .title img{
+        width: 35px;
+    }
+
+    .text_title{
+        font-size: 1.5em;
+    }
+    
+    .text_subtitle{
+        font-size: 0.75em;
     }
 
     .phone_number {
@@ -87,7 +101,7 @@ header{
     }
 
     .networks ul li img{
-        width: 10px;
+        width: 25px;
     }
 
     .menu img{
@@ -98,9 +112,21 @@ header{
 
 /*laptop*/
 @media screen and (min-width:1280px)  {
+
     header {
-        color: blue;
-        font-size: 1.2em;
+        font-size: 1.8em;
+    }
+
+    .title img{
+        width: 100px;
+    }
+
+    .text_title{
+        font-size: 2.1em;
+    }
+    
+    .text_subtitle{
+        font-size: 1em;
     }
 
     .phone_number {
@@ -112,7 +138,7 @@ header{
     }
 
     .networks ul li img{
-        width: 10px;
+        width: 35px;
     }
 
     .menu img{
