@@ -1,0 +1,46 @@
+
+#slider_container{
+    display: flex;
+    justify-content: center;
+}
+
+#slider_wrapper{
+
+    overflow: hidden;
+    width: 350px;
+}
+
+#slider_wrapper ul {
+    list-style: none;
+    
+    display: flex;
+    justify-content: center;
+
+
+    position: relative;
+    height: 200px;
+    padding-left: 0px;
+}
+
+
+#slider_wrapper ul li {
+    float: inline-start;
+}
+
+/*image slider style */
+#slider_wrapper ul img{
+    display: inline;
+    max-width: 350px;
+}
+
+
+
+
+
+/*tablets*/
+@media screen and (min-width:768px) and (max-width:1280px) {
+}
+
+/*laptop*/
+@media screen and (min-width:1280px)  {
+}

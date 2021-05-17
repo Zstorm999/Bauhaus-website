@@ -1,0 +1,121 @@
+header{
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 1.0em;
+
+    margin-bottom: 20px;
+}
+
+.title{
+    display: flex;
+    flex-direction: row
+}
+
+.title img{
+    width: 25px;
+}
+
+.titletext{
+    display: flex;
+    flex-direction: column;
+
+   justify-content: center;
+}
+
+.text_title{
+    font-size: 1.2em;
+}
+
+.text_subtitle{
+    font-size: 0.65em;
+}
+
+.phone_number {
+    display: none;
+}
+
+.phone_number .phone_text{
+    color: darkgray;
+} 
+
+.networks{
+    display: none;
+}
+
+.networks ul{
+    padding-left: 0;
+    
+    list-style-type: none;
+} 
+
+.networks ul li {
+    display: inline;
+}
+
+.networks ul li img {
+    width: 10px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu img{
+    width: 35px;
+}
+
+/*tablets*/
+@media screen and (min-width:768px) and (max-width:1280px) {
+    
+    header {
+        color: red;
+        font-size: 1.2em;
+    }
+
+    .phone_number {
+        display: inline-block;
+    }
+
+    .networks{
+        display: inline-block;
+    }
+
+    .networks ul li img{
+        width: 10px;
+    }
+
+    .menu img{
+        width: 35px
+    }
+
+}
+
+/*laptop*/
+@media screen and (min-width:1280px)  {
+    header {
+        color: blue;
+        font-size: 1.2em;
+    }
+
+    .phone_number {
+        display: inline-block;
+    }
+
+    .networks{
+        display: inline-block;
+    }
+
+    .networks ul li img{
+        width: 10px;
+    }
+
+    .menu img{
+        width: 35px
+    }
+}
